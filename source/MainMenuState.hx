@@ -468,7 +468,7 @@ class MainMenuState extends MusicBeatState
 		{
 			spr.animation.play('idle');
 
-			if (spr.ID == curSelected && finishedFunnyMove && FlxG.mouse.overlaps(menuItem))
+			if (spr.ID == curSelected && finishedFunnyMove && FlxG.mouse.overlaps(spr))
 			{
 				spr.animation.play('selected');
 				// camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y);
