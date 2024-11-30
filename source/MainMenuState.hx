@@ -70,6 +70,7 @@ class MainMenuState extends MusicBeatState
 	public static var gameVer:String = "0.2.7.1";
 
 	var bg:FlxSprite;
+	var bgdrop:FlxBackdrop;
 	var magenta:FlxSprite;
 	var selectUi:FlxSprite;
 	var bigIcons:FlxSprite;
@@ -141,6 +142,12 @@ class MainMenuState extends MusicBeatState
 			magenta.color = FlxColor.multiply(0xFFfd719b, FlxColor.fromRGB(50, 50, 50));
 			add(magenta);
 
+			bgdrop = new FlxBackdrop(Paths.image('ui/checkeredBG', 'preload'), #if (flixel < "5.0.0") 1, 1, true, true, #else XY, #end 1, 1);
+		        bgdrop.alpha = 0;
+		        bgdrop.antialiasing = true;
+		        bgdrop.scrollFactor.set();
+		        add(bgdrop);
+
 			#if SHADERS_ENABLED
 			magenta.shader = voidShader.shader;
 			#end
@@ -155,7 +162,7 @@ class MainMenuState extends MusicBeatState
 			bg.antialiasing = true;
 			bg.color = 0xFFFDE871;
 			add(bg);
-
+			
 			magenta = new FlxSprite(-80).loadGraphic(bg.graphic);
 			magenta.scrollFactor.set();
 			magenta.setGraphicSize(Std.int(magenta.width * 1.1));
@@ -165,6 +172,12 @@ class MainMenuState extends MusicBeatState
 			magenta.antialiasing = true;
 			magenta.color = 0xFFfd719b;
 			add(magenta);
+
+			bgdrop = new FlxBackdrop(Paths.image('ui/checkeredBG', 'preload'), #if (flixel < "5.0.0") 1, 1, true, true, #else XY, #end 1, 1);
+		        bgdrop.alpha = 0;
+		        bgdrop.antialiasing = true;
+		        bgdrop.scrollFactor.set();
+		        add(bgdrop);
 		}
 		selectUi = new FlxSprite(0, 0).loadGraphic(Paths.image('mainMenu/Select_Thing', 'preload'));
 		selectUi.scrollFactor.set(0, 0);
@@ -252,6 +265,8 @@ class MainMenuState extends MusicBeatState
 		}
 
 		firstStart = false;
+
+		FlxG.mouse.visible = true;
 
 		var versionShit:FlxText = new FlxText(1, FlxG.height - 25, 0, '${daRealEngineVer} Engine v${engineVer}\nFNF v${gameVer}', 12);
 		versionShit.antialiasing = true;
@@ -371,7 +386,7 @@ class MainMenuState extends MusicBeatState
 				FlxG.switchState(new TitleState());
 			}
 
-			if (controls.ACCEPT)
+			if (controls.ACCEPT || FlxG.mouse.justPressed)
 			{
 				if (optionShit[curSelected] == 'discord' || optionShit[curSelected] == 'merch')
 				{
@@ -453,7 +468,7 @@ class MainMenuState extends MusicBeatState
 		{
 			spr.animation.play('idle');
 
-			if (spr.ID == curSelected && finishedFunnyMove)
+			if (spr.ID == curSelected && finishedFunnyMove && FlxG.mouse.overlaps(menuItem))
 			{
 				spr.animation.play('selected');
 				// camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y);
@@ -528,7 +543,7 @@ class Prompt extends FlxSpriteGroup
 
 		this.controls = controls;
 
-		FlxG.mouse.visible = true;
+		//FlxG.mouse.visible = true;
 
 		promptText = new FlxText(0, FlxG.height / 2 - 200, FlxG.width, question, 16);
 		promptText.setFormat("Comic Sans MS Bold", 40, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
