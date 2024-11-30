@@ -8,8 +8,9 @@ introWarningSeen==Hello! This mod utilizes shaders that may be of disturbance to
 intoWarningExpunged==Coward.
 
 // FLASHING LIGHTS CUZ YEAH //
-fl_yes==Yes.
-fl_no==No.
+fl_yes==Yes (Select with your mouse or Press Enter)
+fl_desc==Are you really sure?
+fl_no==No (Press Escape Button)
 
 // Main Menu State //
 main_story==Story Mode
