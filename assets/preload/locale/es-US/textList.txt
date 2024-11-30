@@ -6,6 +6,11 @@ introWarningFirstPlay==¡Hola! Este mod utiliza shaders que podrían ser molesto
 introWarningSeen==¡Hola! Este mod utiliza shaders que podrían ser molestos algunos. Si deseas sacarlos, desactiva la opcion de "Efectos" en el menu de opciones. También, Supernovae y Glitch no se deben de tomar en serio, y no fueron compuestas por mí. Supernovae fue compuesta por "ArchWk" y Glitch por "The Boneyard" Presiona Enter para continuar.
 intoWarningExpunged==Cobarde.
 
+// FLASHING LIGHTS CUZ YEAH //
+fl_yes==Si (Seleccione con el cursor o presione Enter)
+fl_desc==¿Estas realmente seguro?
+fl_no==No (Presione la tecla Escape)
+
 // Main Menu State //
 main_story==Modo Historia
 main_freeplay==Juego Libre
