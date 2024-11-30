@@ -49,6 +49,7 @@ jobs:
           haxelib git faxe https://github.com/uhrobots/faxe
           haxelib git polymod https://github.com/larsiusprime/polymod.git f3c0320aa51c848318934c2893ed78f42b7de74c
           haxelib install hxcpp-debug-server
+          haxelib install actuate
           haxelib list
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
@@ -91,6 +92,7 @@ jobs:
           haxelib git faxe https://github.com/uhrobots/faxe
           haxelib git polymod https://github.com/larsiusprime/polymod.git f3c0320aa51c848318934c2893ed78f42b7de74c
           haxelib install hxcpp-debug-server
+          haxelib install actuate
           haxelib list
         shell: cmd
       - name: Create Version Tag
@@ -134,6 +136,7 @@ jobs:
           haxelib git faxe https://github.com/uhrobots/faxe
           haxelib git polymod https://github.com/larsiusprime/polymod.git f3c0320aa51c848318934c2893ed78f42b7de74c
           haxelib install hxcpp-debug-server
+          haxelib install actuate
           haxelib list
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
