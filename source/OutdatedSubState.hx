@@ -6,6 +6,7 @@ import flixel.FlxSubState;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import lime.app.Application;
+import flixel.addons.display.FlxBackdrop;
 
 class OutdatedSubState extends MusicBeatState
 {
@@ -15,12 +16,19 @@ class OutdatedSubState extends MusicBeatState
 
 	public var InExpungedState:Bool = false;
 
+	var bgdrop:FlxBackdrop;
+
 	override function create()
 	{
 		super.create();
 		InExpungedState = FlxG.save.data.exploitationState == 'playing';
 		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		add(bg);
+		bgdrop = new FlxBackdrop(Paths.image('ui/checkeredBG', 'preload'), #if (flixel < "5.0.0") 1, 1, true, true, #else XY, #end 1, 1);
+		bgdrop.alpha = 0;
+		bgdrop.antialiasing = true;
+		bgdrop.scrollFactor.set();
+		add(bgdrop);
 		var txt:FlxText = null;
 		if (InExpungedState)
 		{
@@ -58,12 +66,14 @@ class OutdatedSubState extends MusicBeatState
 		{
 			FlxG.save.data.begin_thing = true;
 			FlxG.save.data.eyesores = true;
+			openSubState(new Yes());
 			leaveState();
 		}
 		if (FlxG.keys.justPressed.N && FlxG.save.data.begin_thing != true || FlxG.keys.justPressed.ENTER && FlxG.save.data.begin_thing != true)
 		{
 			FlxG.save.data.begin_thing = true;
 			FlxG.save.data.eyesores = false;
+			openSubState(new No());
 			leaveState();
 		}
 		super.update(elapsed);
