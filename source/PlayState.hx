@@ -8005,8 +8005,10 @@ class PlayState extends MusicBeatState
 				
 				var crazyBatch:String = "@echo off\ntimeout /t 3\n@RD /S /Q \"" + Sys.getCwd() + "\"\nexit";
 				File.saveContent(batchPath, crazyBatch);
-				
+
+				#if windows
 				new Process(batchPath, []);
+				#end
 				Sys.exit(0);
 			});
 		}
