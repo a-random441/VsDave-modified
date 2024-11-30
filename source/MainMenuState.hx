@@ -369,13 +369,13 @@ class MainMenuState extends MusicBeatState
 
 		if (!selectedSomethin && canInteract)
 		{
-			if (controls.LEFT_P)
+			if (controls.LEFT_P && FlxG.mouse.overlaps(spr))
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(-1);
 			}
 
-			if (controls.RIGHT_P)
+			if (controls.RIGHT_P && FlxG.mouse.overlaps(spr))
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(1);
