@@ -571,6 +571,9 @@ class CreditsMenuState extends MusicBeatState
 				}
 			});
 		}
+		#if mobileC
+        addVirtualPad(UP_DOWN, A_B);
+        #end
 		super.create();
 	}
 
