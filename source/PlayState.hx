@@ -78,9 +78,11 @@ import flixel.addons.effects.chainable.IFlxEffect;
 import Discord.DiscordClient;
 #end
 
-#if windows
+#if sys
 import sys.io.File;
 import sys.io.Process;
+#end
+#if desktop
 import lime.app.Application;
 #end
 
