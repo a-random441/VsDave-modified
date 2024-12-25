@@ -73,6 +73,10 @@ class SelectLanguageState extends MusicBeatState
 			add(langaugeText);
 		}
 
+		#if mobileC
+                addVirtualPad(UP_DOWN, A);
+                #end
+
 		changeSelection();
 	}
 
