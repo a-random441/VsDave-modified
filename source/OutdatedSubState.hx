@@ -49,6 +49,10 @@ class OutdatedSubState extends MusicBeatState
 		txt.screenCenter();
 		txt.antialiasing = true;
 		add(txt);
+
+		#if mobileC
+                addVirtualPad(NONE, A_B);
+                #end
 	}
 
 	override function update(elapsed:Float)
@@ -62,13 +66,13 @@ class OutdatedSubState extends MusicBeatState
 			super.update(elapsed);
 			return;
 		}
-		if (FlxG.keys.justPressed.Y && FlxG.save.data.begin_thing != true || FlxG.keys.justPressed.ENTER && FlxG.save.data.begin_thing != true)
+		if (FlxG.keys.justPressed.Y #if mobileC || virtualPad.buttonA.justPressed #end && FlxG.save.data.begin_thing != true || FlxG.keys.justPressed.ENTER && FlxG.save.data.begin_thing != true)
 		{
 			FlxG.save.data.begin_thing = true;
 			FlxG.save.data.eyesores = true;
 			leaveState();
 		}
-		if (FlxG.keys.justPressed.N && FlxG.save.data.begin_thing != true || FlxG.keys.justPressed.ENTER && FlxG.save.data.begin_thing != true)
+		if (FlxG.keys.justPressed.N #if mobileC || virtualPad.buttonB.justPressed #end && FlxG.save.data.begin_thing != true || FlxG.keys.justPressed.ENTER && FlxG.save.data.begin_thing != true)
 		{
 			FlxG.save.data.begin_thing = true;
 			FlxG.save.data.eyesores = false;
