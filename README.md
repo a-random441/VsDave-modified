@@ -1,5 +1,9 @@
 <img src="KadeEngineWitBackground.png" width="600" height="400">
 
+# why is there two branches bro...
+there are two branches so if i make a dumbass move i can just get the backup from that branch
+HAH-
+
 # VS DAVE (DAVE ENGINE)
 this is dave
 
