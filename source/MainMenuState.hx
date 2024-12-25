@@ -291,6 +291,10 @@ class MainMenuState extends MusicBeatState
 
 		// NG.core.calls.event.logEvent('swag').send();
 
+		#if mobileC
+                addVirtualPad(LEFT_FULL, A_B_E);
+                #end
+
 		super.create();
 	}
 
@@ -319,7 +323,7 @@ class MainMenuState extends MusicBeatState
 
 				FlxG.camera.shake(0.05, 0.1);
 			}
-			if (FlxG.keys.justPressed.R)
+			if (FlxG.keys.justPressed.R #if mobileC || virtualPad.buttonE.justPressed #end)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 
@@ -369,13 +373,13 @@ class MainMenuState extends MusicBeatState
 
 		if (!selectedSomethin && canInteract)
 		{
-			if (controls.LEFT_P && FlxG.mouse.overlaps(spr))
+			if (controls.LEFT_P)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(-1);
 			}
 
-			if (controls.RIGHT_P && FlxG.mouse.overlaps(spr))
+			if (controls.RIGHT_P)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(1);
