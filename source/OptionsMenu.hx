@@ -142,7 +142,7 @@ class OptionsMenu extends MusicBeatState
 		#if mobileC
 		if (virtualPad.buttonC.justPressed)
 		{
-			openSubstate(new mobile.MobileControlsSubState());
+			openSubState(new mobile.MobileControlsSubState());
 		}
 		#end
 
