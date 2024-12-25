@@ -160,6 +160,10 @@ class MusicPlayerState extends MusicBeatState
 
 		HideBar();
 
+		#if mobileC
+                addVirtualPad(LEFT_FULL, A_B);
+                #end
+
 		super.create();
 	}
 
