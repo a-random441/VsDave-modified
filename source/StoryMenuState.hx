@@ -172,6 +172,9 @@ class StoryMenuState extends MusicBeatState
 		{
 			changeWeek(0);
 		}
+		#if mobileC
+        addVirtualPad(LEFT_FULL, A_B);
+        #end
 		super.create();
 	}
 
@@ -212,7 +215,7 @@ class StoryMenuState extends MusicBeatState
 			movedBack = true;
 			FlxG.switchState(new MainMenuState());
 		}
-		if (FlxG.keys.justPressed.SEVEN && !FlxG.save.data.masterWeekUnlocked)
+		if (FlxG.keys.justPressed.SEVEN #if android || FlxG.android.justReleased.BACK #end && !FlxG.save.data.masterWeekUnlocked)
 		{
 			FlxG.sound.music.fadeOut(1, 0);
 			FlxG.camera.shake(0.02, 5.1);
